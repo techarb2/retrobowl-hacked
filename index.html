@@ -12,6 +12,30 @@
     <!-- Set the title bar of the page -->
     <title>Retro Bowl | Galactic</title>
 
+    <input type="button"
+          value="Retro Bowl*hacks*"
+              Onclick="retroBowl()">
+    <script>
+      function retroBowl() {
+    function updateLocalStorage(key, newValue) { 
+        let savedata = localStorage.getItem('RetroBowl.0.savedata.ini'); 
+        let lines = savedata.split('\n'); 
+        for (let i = 0; i < lines.length; i++) { 
+            let line = lines[i]; 
+            if (line.startsWith(key + '=')) { 
+                lines[i] = key + '=' + `"${newValue}"`; 
+                break; 
+            } 
+        } 
+        savedata = lines.join('\n'); 
+        localStorage.setItem('RetroBowl.0.savedata.ini', savedata); 
+    } 
+    let tokens = prompt('Enter your coach credit token amount:'); 
+    updateLocalStorage('coach_credit', tokens);
+    alert("Now refresh and your credits will be there.")
+}
+    </script>
+    
     <!-- Set the background colour of the document -->
     <style>
       body {
@@ -65,6 +89,7 @@
     </style>
   </head>
 
+  
   <body>
     <div class="gm4html5_div_class" id="gm4html5_div_id">
       <img src="html5game/splash.png" id="GM4HTML5_loadingscreen" alt="GameMaker:HTML5 loading screen" style="display: none;" />
@@ -74,6 +99,7 @@
       </canvas>
     </div>
 
+    
     <!-- Run the game code -->
     <script type="text/javascript" src="html5game/RetroBowl.js?WAEAC=1633155445"></script>
     <script>
